@@ -95,9 +95,5 @@ pfpFile.addEventListener('change', ()=>{
 });
 resetPfp.addEventListener('click', ()=>{ pfp.src = './default-pfp.png'; pfpFile.value=''; });
 
-// About Arcium link (placeholder). Replace with official URL if desired.
-moreLink.href = 'https://arcium.ai/';
-moreLink.textContent = 'Visit Arcium (official)';
-
 // initial
 updateWordDisplay(); updateGuessed();

@@ -12,7 +12,7 @@
       <img id="pfp" src="./default-pfp.png" alt="Player PFP" />
       <div>
         <h1>Secret Word — Private Guess</h1>
-        <p class="muted">Private during play · verifiable reveal</p>
+        <p class="muted">Play against the computer</p>
       </div>
     </div>
     <div class="pfp-controls">
@@ -23,40 +23,38 @@
 
   <main class="container">
     <section class="card">
-      <h2>Setup (Player A)</h2>
-      <label>Secret word (hidden):
-        <input id="secretInput" type="password" placeholder="enter secret word" />
-      </label>
-      <div class="row">
-        <button id="commitBtn" class="btn">Commit secret</button>
-        <button id="revealBtn" class="btn ghost" disabled>Reveal now</button>
+      <h2>Game Setup</h2>
+      <div id="gameStatus">
+        <p class="muted">Click "Start Game" to begin. The computer will pick a secret word and you'll guess letters.</p>
+        <button id="startBtn" class="btn">Start Game</button>
       </div>
-      <p class="muted small">Commit will publish the SHA-256 hash of the secret so the reveal can be verified later.</p>
-      <div id="commitArea" class="commit-area"></div>
     </section>
 
-    <section class="card">
-      <h2>Play (Player B)</h2>
+    <section class="card" id="hintSection" style="display:none">
+      <h2>Hint</h2>
+      <p id="hintText"></p>
+    </section>
+
+    <section class="card" id="playSection" style="display:none">
+      <h2>Guess the Word</h2>
       <div id="wordDisplay" class="word">—</div>
       <label>Guess a letter:
         <input id="guessInput" type="text" maxlength="1" />
       </label>
       <div class="row">
-        <button id="guessBtn" class="btn" disabled>Guess</button>
-        <button id="autoSolve" class="btn ghost" disabled>Auto-solve (debug)</button>
+        <button id="guessBtn" class="btn">Guess</button>
+        <button id="newGameBtn" class="btn ghost">New Game</button>
       </div>
       <div id="guessed" class="muted small">Guessed: —</div>
+      <div id="result"></div>
     </section>
 
     <section class="card">
       <h2>About Arcium</h2>
-      <p id="arciumDesc">Arcium provides private computation and verifiable results — the UI shows a commitment (hash) before play, checks guesses privately, and reveals the final word plus its hash so anyone can verify the commitment matched the reveal.</p>
+      <p id="arciumDesc">Arcium provides private computation and verifiable results — this game demonstrates the concept of secret commitment: the computer's word is hidden during play and only revealed at the end.</p>
       <a id="moreLink" href="https://x.com/arcium?s=21" class="muted" target="_blank" rel="noopener">Visit Arcium (official)</a>
     </section>
   </main>
-
-  <footer class="site-footer">
-  </footer>
 
   <script src="script.js"></script>
 </body>

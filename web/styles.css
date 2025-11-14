@@ -28,6 +28,5 @@ label{display:block;margin-top:8px}
 input[type="text"],input[type="password"]{padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.04);color:var(--white);width:100%;}
 .commit-area{margin-top:12px;background:rgba(255,255,255,0.03);padding:8px;border-radius:8px;font-family:monospace}
 .word{font-size:28px;letter-spacing:6px;margin:6px 0}
-.site-footer{max-width:880px;margin:24px auto;text-align:center;padding:8px}
 .pfp-controls{display:flex;gap:8px;align-items:center}
 .muted small{color:rgba(255,255,255,0.65)}

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Secret Word — Private Guess</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <img id="pfp" src="./default-pfp.png" alt="Project PFP" />
+      <div>
+        <h1>Secret Word — Private Guess</h1>
+        <p class="muted">Private during play · verifiable reveal</p>
+      </div>
+    </div>
+    <div class="pfp-controls">
+      <label class="btn">Upload PFP <input id="pfpFile" type="file" accept="image/*" hidden></label>
+      <button id="resetPfp" class="btn ghost">Reset</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Setup (Player A)</h2>
+      <label>Secret word (hidden):
+        <input id="secretInput" type="password" placeholder="enter secret word" />
+      </label>
+      <div class="row">
+        <button id="commitBtn" class="btn">Commit secret</button>
+        <button id="revealBtn" class="btn ghost" disabled>Reveal now</button>
+      </div>
+      <p class="muted small">Commit will publish the SHA-256 hash of the secret so the reveal can be verified later.</p>
+      <div id="commitArea" class="commit-area"></div>
+    </section>
+
+    <section class="card">
+      <h2>Play (Player B)</h2>
+      <div id="wordDisplay" class="word">—</div>
+      <label>Guess a letter:
+        <input id="guessInput" type="text" maxlength="1" />
+      </label>
+      <div class="row">
+        <button id="guessBtn" class="btn" disabled>Guess</button>
+        <button id="autoSolve" class="btn ghost" disabled>Auto-solve (debug)</button>
+      </div>
+      <div id="guessed" class="muted small">Guessed: —</div>
+    </section>
+
+    <section class="card">
+      <h2>About Arcium</h2>
+      <p id="arciumDesc">Arcium provides private computation and verifiable results — the UI shows a commitment (hash) before play, checks guesses privately, and reveals the final word plus its hash so anyone can verify the commitment matched the reveal.</p>
+      <a id="moreLink" class="muted" target="_blank" rel="noopener">Learn more about Arcium</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small class="muted">Purple + white theme • Ready for Vercel static deploy</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
